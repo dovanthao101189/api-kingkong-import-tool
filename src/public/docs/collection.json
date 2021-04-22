@@ -1,0 +1,222 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "0721c587-a6fa-4572-941c-db2f337b30a8",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Import management",
+            "description": "\nAPIs for managing Imports",
+            "item": [
+                {
+                    "name": "Import product",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/import",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"link\": \"https:\\\/\\\/personalizethem.com\\\/collections\\\/all\\\/products\\\/1102\",\n    \"source\": \"shopify\",\n    \"target\": \"product\",\n    \"store_ids\": \"[1,2,3]\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Store management",
+            "description": "\nAPIs for managing Stores",
+            "item": [
+                {
+                    "name": "Get list stores",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/stores",
+                            "query": [
+                                {
+                                    "key": "customer_id",
+                                    "value": "nihil",
+                                    "description": "",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create a store",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/stores",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"type_shop\": \"SHOPBASE\",\n    \"store_name\": \"shop00000001\",\n    \"store_front\": \"https:\\\/\\\/www.leuleushop.com\\\/products\\\/\",\n    \"api_key\": \"754cfb1d640725d4e33e7d1e0cc59982\",\n    \"secret_key\": \"b139dc630ddb613b30946ba29e870f48611f6858cd7c4a154fce17b264aa1eaa\",\n    \"customer_id\": 68\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get a store",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/stores\/:store",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "store",
+                                    "key": "store",
+                                    "value": "dolorem",
+                                    "description": "is ID of the store."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update a store",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/stores\/:store",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "store",
+                                    "key": "store",
+                                    "value": "doloribus",
+                                    "description": "is ID of the store."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"type_shop\": \"SHOPBASE\",\n    \"store_name\": \"shop00000001\",\n    \"store_front\": \"https:\\\/\\\/www.leuleushop.com\\\/products\\\/\",\n    \"api_key\": \"754cfb1d640725d4e33e7d1e0cc59982\",\n    \"secret_key\": \"b139dc630ddb613b30946ba29e870f48611f6858cd7c4a154fce17b264aa1eaa\",\n    \"customer_id\": 68\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete a store",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/stores\/:store",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "store",
+                                    "key": "store",
+                                    "value": "libero",
+                                    "description": "is ID of the store."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+version: '3'
+
+networks:
+  laravel:
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - php
+      - redis
+    networks:
+      - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: php
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - laravel
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    networks:
+      - laravel
+
+  composer:
+    build:
+      context: .
+      dockerfile: composer.dockerfile
+    container_name: composer
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    user: laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']
+    networks:
+      - laravel
+
+  npm:
+    image: node:13.7
+    container_name: npm
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    networks:
+      - laravel
