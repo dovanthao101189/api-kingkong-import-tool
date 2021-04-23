@@ -59,7 +59,6 @@ class ToolController extends BaseController
         return $this->callImportCore($link, $target, $source, $storeShops);
     }
 
-
     private function callImportCore($link, $target, $source, $storeShops)
     {
         $payload = [
@@ -75,7 +74,7 @@ class ToolController extends BaseController
             'body' => json_encode($payload)
         ]);
         if ($request->getStatusCode() === 200 || $request->getStatusCode() === 201) {
-            return $request->getBody()->getContents();
+            return response()->json(json_decode($request->getBody()->getContents(), true));
         }
 
         return response()->json(['success' => false, 'views' => []]);
